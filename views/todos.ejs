@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Express-it-todos</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= data.appName %></h1>
+    <form method="POST" action="/todos/new">
+        <input type="text" name="todo">
+        <input type="submit" value='Submit'>
+    </form>
+    <ul>
+        <% data.todos.forEach(todo => {%>
+            <li><%= todo %></li>
+        <% }) %>    
+    </ul>
+  </body>
+</html>
