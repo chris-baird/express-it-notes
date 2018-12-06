@@ -9,7 +9,9 @@ router.get('/', (req, res) => {
 })
 
 router.post('/new', (req, res) => {
-    console.log(req.body);
+    console.log(req.body.todo);
+    data.todos.push(req.body.todo);
+    res.render('todos', { 'data': data });
 })
 
 module.exports = router;
