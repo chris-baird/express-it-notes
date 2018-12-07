@@ -6,13 +6,13 @@
   </head>
   <body>
     <h1><%= data.appName %></h1>
-    <form method="POST" action="/todos/new">
+    <form method="POST" action="/todos">
       <input type="text" name="todo" /> <input type="submit" value="Submit" />
     </form>
     <ul>
       <% data.todos.forEach(todo => {%>
       <li><%= todo %></li>
-      <button id="delete" data-todo="<%- todo %>">Delete</button>
+      <button type="button" id="delete" data-todo="<%- todo %>">Delete</button>
       <% }) %>
     </ul>
   </body>
@@ -23,19 +23,16 @@
   ></script>
   <script>
     $('button').on('click', event => {
+      event.preventDefault();
       console.log(event.target.attributes['data-todo'].value);
       let todo = event.target.attributes['data-todo'].value
       $.ajax({
-        url: '/todos/delete/' + todo,
+        url: '/todos/' + todo,
         type: 'DELETE',
         success: function(result){
-          $.ajax({
-            url: '/todos',
-            type: 'GET',
-            success: function(){
-              location.reload();
-            }
-          })
+          // location.reload();
+          console.log(result);
+          window.location.reload();
         }
       })
     })

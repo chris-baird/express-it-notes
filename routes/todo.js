@@ -7,14 +7,15 @@ router.get('/', (req, res) => {
     res.render('todos', { 'data': data });
 });
 
-router.post('/new', (req, res) => {
+router.post('/', (req, res) => {
     data.addTodo(req.body.todo);
     res.render('todos', { 'data': data });
 });
 
-router.delete('/delete/:todo', (req, res) => {
+router.delete('/:todo', (req, res) => {
+    console.log('delete route hit');
     data.removeTodo(req.params.todo);
-    res.render('todos', { 'data': data });
+    res.send({'idk':'idk'});
 });
 
 module.exports = router;
