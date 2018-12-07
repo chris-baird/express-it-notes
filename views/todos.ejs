@@ -24,6 +24,20 @@
   <script>
     $('button').on('click', event => {
       console.log(event.target.attributes['data-todo'].value);
+      let todo = event.target.attributes['data-todo'].value
+      $.ajax({
+        url: '/todos/delete/' + todo,
+        type: 'DELETE',
+        success: function(result){
+          $.ajax({
+            url: '/todos',
+            type: 'GET',
+            success: function(){
+              location.reload();
+            }
+          })
+        }
+      })
     })
   </script>
 </html>
