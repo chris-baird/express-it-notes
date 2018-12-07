@@ -19,4 +19,11 @@ router.delete('/:todo', (req, res) => {
     res.render('todos', { 'data': data });
 });
 
+router.put('/:todo', (req, res) => {
+    console.log('Update route has been hit');
+    console.log(req.body.data);
+    data.updateTodo(req.params.todo, req.body.data);
+    res.render('todos', { 'data': data });
+})
+
 module.exports = router;

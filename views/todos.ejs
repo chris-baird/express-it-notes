@@ -13,6 +13,7 @@
       <% data.todos.forEach(todo => {%>
       <li><%= todo %></li>
       <button id="delete" data-todo="<%- todo %>">Delete</button>
+      <button id="update" data-todo="<%- todo %>">Update</button>
       <% }) %>
     </ul>
   </body>
@@ -22,18 +23,33 @@
     crossorigin="anonymous"
   ></script>
   <script>
-    $('button').on('click', event => {
-      console.log(event.target.attributes['data-todo'].value);
-      let todo = event.target.attributes['data-todo'].value
-      $.ajax({
-        url: '/todos/' + todo,
-        type: 'DELETE',
-        success: function(result){
-          // location.reload();
-          console.log(result);
-          window.location.reload();
-        }
-      })
-    })
+    $("button").on("click", event => {
+      let todo = event.target.attributes["data-todo"].value;
+      let eventTarget = event.target.id;
+      if (eventTarget === "delete") {
+        $.ajax({
+          url: "/todos/" + todo,
+          type: "DELETE",
+          success: function(result) {
+            window.location.reload();
+          }
+        });
+      }
+      if (eventTarget === "update") {
+        console.log('update hit');
+        let updateTodo = prompt('Update Todo');
+        console.log(updateTodo);
+        $.ajax({
+          url: "/todos/" + todo,
+          type: "PUT",
+          data: {
+            data: updateTodo
+          },
+          success: function(result) {
+            window.location.reload();
+          }
+        });
+      }
+    });
   </script>
 </html>
