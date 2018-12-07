@@ -12,7 +12,7 @@
     <ul>
       <% data.todos.forEach(todo => {%>
       <li><%= todo %></li>
-      <button type="button" id="delete" data-todo="<%- todo %>">Delete</button>
+      <button id="delete" data-todo="<%- todo %>">Delete</button>
       <% }) %>
     </ul>
   </body>
@@ -23,7 +23,6 @@
   ></script>
   <script>
     $('button').on('click', event => {
-      event.preventDefault();
       console.log(event.target.attributes['data-todo'].value);
       let todo = event.target.attributes['data-todo'].value
       $.ajax({

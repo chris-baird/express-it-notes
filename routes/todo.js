@@ -9,13 +9,14 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     data.addTodo(req.body.todo);
-    res.render('todos', { 'data': data });
+    // res.render('todos', { 'data': data });
+    res.redirect('/todos');
 });
 
 router.delete('/:todo', (req, res) => {
     console.log('delete route hit');
     data.removeTodo(req.params.todo);
-    res.send({'idk':'idk'});
+    res.render('todos', { 'data': data });
 });
 
 module.exports = router;
