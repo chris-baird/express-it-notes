@@ -6,11 +6,16 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
+
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const todoRouter = require('./routes/todo');
 
 const app = express();
+
+// mongo db
+require('./config/database');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
