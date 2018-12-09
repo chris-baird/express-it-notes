@@ -12,13 +12,14 @@
   </head>
   <body>
     <div class="container">
-      <h1><%= data.appName %></h1>
+      <h1>Express-it-todos</h1>
+      <% console.log(data) %>
       <form method="POST" action="/todos">
         <input type="text" name="todo" /> <input type="submit" value="Submit" />
       </form>
       <ul>
-        <% data.todos.forEach(todo => {%>
-        <li><%= todo %></li>
+        <% data.forEach(todo => {%>
+        <li><%= todo.todo %></li>
         <button id="delete" data-todo="<%- todo %>">Delete</button>
         <button id="update" data-todo="<%- todo %>">Update</button>
         <% }) %>

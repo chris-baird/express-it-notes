@@ -6,8 +6,6 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
-
-
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const todoRouter = require('./routes/todo');

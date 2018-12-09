@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const data = require('../controllers/todoController');
+const todoCtrl = require('../controllers/todoController');
+
+router.get('/', todoCtrl.getAllTodos);
 
 // Todo routes
-router.get('/', (req, res) => {
-    res.render('todos', { 'data': data });
-});
+// router.get('/', (req, res) => {
+//     res.render('todos', { 'data': data });
+// });
 
 router.post('/', (req, res) => {
     data.addTodo(req.body.todo);
-    // res.render('todos', { 'data': data });
     res.redirect('/todos');
 });
 
