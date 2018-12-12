@@ -60,6 +60,9 @@ const todoController = {
     //   name: 'Chris',
     //   todo: 'Finnish Homework'
     // }
+    // Todo.create(tempData).then(todo => {
+    //   console.log(todo);
+    // })
 
     Todo.find({}).then(todo => {
       console.log(todo);
