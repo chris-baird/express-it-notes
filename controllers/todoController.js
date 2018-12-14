@@ -10,9 +10,10 @@ const todoController = {
   },
   addTodo: (req, res) => {
     const todo = req.body;
+    console.log(todo);
     Todo.create(todo).then(todo => {
       console.log(todo);
-      res.redirect('/todos');
+      res.send('/todos');
     }).catch(err => res.status(400).json(err));
   },
   updateTodo: (req, res) => {
