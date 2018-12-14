@@ -14,14 +14,16 @@ console.log('page loaded');
       }
       if (eventTarget === "update") {
         console.log('update hit');
-        let updateTodo = prompt('Update Todo');
-        console.log(updateTodo);
-        if(updateTodo){
+        const todoName = $('.name-form').val();
+        const todoBody = $('.todo-form').val();
+        console.log(todoName);
+        if(todoName && todoBody){
         $.ajax({
           url: "/todos/" + todo,
           type: "PUT",
           data: {
-            data: updateTodo
+            name: todoName,
+            todo: todoBody
           },
           success: function(result) {
             window.location.reload();
