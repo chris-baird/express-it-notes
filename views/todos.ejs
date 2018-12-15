@@ -98,29 +98,58 @@
       </div>
     </div>
     <div class="container">
-      <div class="div-main-wrapper mx-auto">
-        <ul>
-          <% data.forEach(todo => {%>
-          <li><%= todo.todo %></li>
-          <span class="d-block"><%= todo.name %></span>
-          <button
-            id="delete"
-            data-todo="<%- todo._id %>"
-            class="btn btn-danger"
-          >
-            Delete
-          </button>
-          <button
-            id="update"
-            data-todo="<%- todo._id %>"
-            class="btn btn-warning"
-          >
-            Update
-          </button>
-          <br />
-          <br />
-          <% }) %>
-        </ul>
+      <div class="div-main-wrapper mx-auto row" style="padding: .5em;">
+        <!-- Testing -->
+        <% data.forEach(todo => {%>
+        <div class="col-sm-12 col-md-6 col-lg-6 mb-2" style="">
+          <div class="card">
+            <h2 class="card-title mx-auto"><%= todo.name %></h2>
+            <!-- <img class="card-img-top" src="" alt="Card image cap" /> -->
+            <div class="card-body">
+              <p class="card-text mx-auto"><%= todo.todo %></p>
+              <button
+                id="update"
+                data-todo="<%- todo._id %>"
+                class="btn btn-warning"
+              >
+                Update
+              </button>
+              <button
+                id="delete"
+                data-todo="<%- todo._id %>"
+                class="btn btn-danger"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+        <!-- Existing -->
+        <!--
+          <ul>
+            <% data.forEach(todo => {%>
+            <li><%= todo.todo %></li>
+            <span class="d-block"><%= todo.name %></span>
+            <button
+              id="delete"
+              data-todo="<%- todo._id %>"
+              class="btn btn-danger"
+            >
+              Delete
+            </button>
+            <button
+              id="update"
+              data-todo="<%- todo._id %>"
+              class="btn btn-warning"
+            >
+              Update
+            </button>
+            <br />
+            <br />
+            <% }) %>
+          </ul>
+        -->
       </div>
     </div>
   </body>
