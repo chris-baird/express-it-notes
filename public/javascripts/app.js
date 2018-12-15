@@ -1,8 +1,15 @@
 console.log('Hey custom js is loaded');
 console.log('page loaded');
+let action;
     $("button").on("click", event => {
-      console.log('clicked');
       let eventTarget = event.target.id;
+      
+      if(eventTarget === 'new-todo'){
+        console.log('yes');
+        let dataTarget = event.target.attributes['data-action'].value;
+        console.log(dataTarget);
+        // action = 
+      }
 
       if(eventTarget === "submit") {
         const todoName = $('.name-form').val();
