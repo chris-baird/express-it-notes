@@ -71,10 +71,14 @@
           </div>
           <div class="modal-body">
             <form method="POST" action="/todos">
-              <label for="name">Name</label>
-              <input type="text" name="name" class="name-form" /> <br />
-              <label for="todo">Todo</label>
-              <textarea type="text" name="todo" class="todo-form" ></textarea>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="name-form form-control" /> <br />
+              </div>
+              <div class="form-group">
+                <label for="todo">Todo</label>
+                <textarea type="text" name="todo" class="todo-form form-control"></textarea>
+              </div>
               <!-- <input type="submit" value="Submit" /> -->
             </form>
           </div>
@@ -105,10 +109,14 @@
         <% data.forEach(todo => {%>
         <div class="col-sm-12 col-md-6 col-lg-6 mb-2">
           <div class="card">
-            <h2 class="card-title mx-auto" data-todo-name="<%- todo.name %>"><%= todo.name %></h2>
+            <h2 class="card-title mx-auto" data-todo-name="<%- todo.name %>">
+              <%= todo.name %>
+            </h2>
             <!-- <img class="card-img-top" src="" alt="Card image cap" /> -->
             <div class="card-body">
-              <p class="card-text mx-auto" data-todo-body="<%- todo.todo %>"><%= todo.todo %></p>
+              <p class="card-text mx-auto" data-todo-body="<%- todo.todo %>">
+                <%= todo.todo %>
+              </p>
               <button
                 id="update-todo"
                 data-todo="<%- todo._id %>"
