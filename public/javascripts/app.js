@@ -38,6 +38,7 @@ $("button").on("click", event => {
     }
   }
 
+
   if($(`#${eventTarget}`).attr('data-action') === 'new'){
     console.log('new hit');
     const todoName = $(".name-form").val();
