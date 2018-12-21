@@ -105,14 +105,12 @@
     </div>
     <div class="container">
       <div class="div-main-wrapper mx-auto row" style="padding: .5em;">
-        <!-- Testing -->
         <% data.forEach(todo => {%>
         <div class="col-sm-12 col-md-6 col-lg-6 mb-2">
           <div class="card">
             <h2 class="card-title mx-auto" data-todo-name="<%- todo.name %>">
               <%= todo.name %>
             </h2>
-            <!-- <img class="card-img-top" src="" alt="Card image cap" /> -->
             <div class="card-body">
               <p class="card-text mx-auto" data-todo-body="<%- todo.todo %>">
                 <%= todo.todo %>
